@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Levi Mekash">
+    <meta name="viewport" content="width=device-width">
+    <title>Guessing Game</title>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+
+
+<body>
+  <h1>Guessing Game</h1>
+  <p id="demo"></p>
+  <script>
+      
+      while (true) {
+          let playAgain = confirm('Do you want to play the game?');
+          if (!playAgain) {
+              break; // <-- Exit the loop if the user doesn't want to play again
+          }
+
+          // Generate a new random number for each game
+          let randomNumber = Math.floor(Math.random() * 10) + 1;
+
+          // Reset guess count for the new game iteration
+          let guessCount = 0;
+          let userGuess;
+
+          do {
+              userGuess = prompt('Guess a number between 1 and 10.');
+              guessCount++; // <-- Increment the count on each guess
+          } while (userGuess != randomNumber); // <-- Continues to loop until the user guesses the correct number
+
+
+
+          // Game logic
+          if (userGuess == randomNumber) {
+              document.getElementById("demo").innerHTML = `You guessed it correct in ${guessCount} guesses!`;
+          } else if (userGuess > randomNumber) {
+              document.getElementById("demo").innerHTML = `Your guess was too high, guess again.`;
+          } else if (userGuess < randomNumber) {
+              document.getElementById("demo").innerHTML = `Your guess was too low, guess again.`;
+          }
+
+          // Print results in console
+          console.log(`The random number was: ${randomNumber}`);
+          console.log(`Your guess was: ${userGuess}`);
+          console.log(`Your guess count was: ${guessCount}`);
+
+          // Print results in html
+          document.getElementById("demo").innerHTML = `
+              The random number was: ${randomNumber}<br>
+              Your guess was: ${userGuess}<br>
+              Your guess count was: ${guessCount}`;
+      }
+      
+  </script>
+</body>
+
+</html>
