@@ -13,8 +13,7 @@
 <body>
   <h1>Guessing Game</h1>
   <p id="demo"></p>
-  <script>
-      
+  <script>   
       while (true) {
           let playAgain = confirm('Do you want to play the game?');
           if (!playAgain) {
@@ -32,8 +31,7 @@
               userGuess = prompt('Guess a number between 1 and 10.');
               guessCount++; // <-- Increment the count on each guess
           } while (userGuess != randomNumber); // <-- Continues to loop until the user guesses the correct number
-
-
+          
 
           // Game logic
           if (userGuess == randomNumber) {
@@ -54,8 +52,7 @@
               The random number was: ${randomNumber}<br>
               Your guess was: ${userGuess}<br>
               Your guess count was: ${guessCount}`;
-      }
-      
+      }      
   </script>
 </body>
 
